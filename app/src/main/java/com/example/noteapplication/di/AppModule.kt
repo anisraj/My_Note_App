@@ -6,10 +6,7 @@ import com.example.noteapplication.feature_note.data.data_source.NoteDao
 import com.example.noteapplication.feature_note.data.data_source.NoteDatabase
 import com.example.noteapplication.feature_note.data.repository.NoteRepositoryImpl
 import com.example.noteapplication.feature_note.domain.repository.NoteRepository
-import com.example.noteapplication.feature_note.domain.use_case.AddNoteUseCase
-import com.example.noteapplication.feature_note.domain.use_case.DeleteNoteUseCase
-import com.example.noteapplication.feature_note.domain.use_case.GetNotesUseCase
-import com.example.noteapplication.feature_note.domain.use_case.NoteUseCases
+import com.example.noteapplication.feature_note.domain.use_case.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +38,8 @@ object AppModule {
         return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repo),
             deleteNoteUseCase = DeleteNoteUseCase(repo),
-            addNoteUseCase = AddNoteUseCase(repo)
+            addNoteUseCase = AddNoteUseCase(repo),
+            getNoteUseCase = GetNoteUseCase(repo)
         )
     }
 }
